@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="main">
+    <div class="app" v-show="showMain">
+        <div class="app__header">
+            <img class="app__logo" src="img/logo.png">
+        </div>
+
+
+        <div class="app__body">
+            <button class="app__bth">
+                <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                <span class="app__btn-text">Начать</span>
+            </button>
+            <button class="app__bth">
+                <i class="fa fa-trophy" aria-hidden="true"></i>
+                <span class="app__btn-text">Достижения</span>
+            </button>
+            <button class="app__bth">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <span class="app__btn-text">Автор</span>
+            </button>
+            <button class="app__bth bth__sound">
+                <i class="fa fa-volume-up" aria-hidden="true"></i>
+                <span class="app__btn-text">Звук</span>
+            </button>
+        </div>
+    </div>
+
+
+    <div class="app achivments" v-show="showAchivment">
+
+        <div class="app__body">
+
+            <div class="app__body-inner">
+                <h2 class="app__body-title">
+                    <i class="fa fa-trophy" aria-hidden="true"></i>
+                    Достижения
+                </h2>
+
+                <div class="app__body-top">
+                    <div class="app__card">
+                        <div class="app__card-text">Счет</div>
+                        <div class="app__card-count">0</div>
+                    </div>
+
+                    <div class="app__card">
+                        <div class="app__card-text">Открыто рас</div>
+                        <div class="app__card-count">0</div>
+                    </div>
+
+                    <div class="app__card">
+                        <div class="app__card-text">Всего игр</div>
+                        <div class="app__card-count">0</div>
+                    </div>
+
+                    <div class="app__card">
+                        <div class="app__card-text">Любимая раса</div>
+                        <div class="app__card-count">0</div>
+                    </div>
+                </div>
+                <div class="app__body-middle">
+                    <div class="app__result">
+                        <app__result-score>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <div class="app__result-count">
+                                150
+                            </div>
+                        </app__result-score>
+                        <div class="app__result-name">Зерг</div>
+                        <div class="app__result-amount">5</div>
+                    </div>
+                </div>
+            </div>
+            <button class="app__bth btn__back btn__achivment">
+                <i class="fa fa-reply" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="app" v-show="showQuestions">
+        <div class="app__header">
+            <div class="app__header-inner">
+                <div class="app__count">#1</div>
+                <div class="app__text">Текст вопроса</div>
+            </div>
+        </div>
+
+        <div class="app__body">
+            <button class="app__bth">
+                <div class="app__btn-text">Ответ</div>
+            </button>
+        </div>
+    </div>
+
+
+    <div class="app" v-show="showSocial">
+        <div class="app__body">
+            <a target="_blank" href="https://instagram.com" class="app__bth">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+                <span class="app__btn-text">Instgramm</span>
+            </a>
+        </div>
+
+        <div class="app__body">
+            <a target="_blank" href="https://twitter.com" class="app__bth">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+                <span class="app__btn-text">Twitter</span>
+            </a>
+        </div>
+
+        <div class="app__body">
+            <a target="_blank" href="https://facebook.com" class="app__bth">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+                <span class="app__btn-text">Facebook</span>
+            </a>
+        </div>
+
+        <div class="app__body">
+            <a target="_blank" href="https://youtube.com" class="app__bth">
+                <i class="fa fa-youtube" aria-hidden="true"></i>
+                <span class="app__btn-text">Youtube</span>
+            </a>
+        </div>
+
+
+        <button class="app__bth btn__back">
+            <i class="fa fa-reply" aria-hidden="true"></i>
+        </button>
+
+
+    </div>
+
+
+    <div class="app results" data-race="hybrid" v-show="showResult">
+        <div class="app__body">
+            <div class="app__results-inner">
+                <div class="results__title">Зерг</div>
+                <div class="results__img">
+                    <img src="img/zerg_logo.png">
+                </div>
+                <div class="results__text-box">
+                    <p class="results__text">qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq</p>
+                    <p class="results__qoute">qoute1</p>
+                    <p class="results__quote">qoute1</p>
+                    <p class="results__author">Author1</p>
+                </div>
+                <div>
+                    <button class="app__bth btn__back btn__zerg">
+                        <i class="fa fa-reply" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/vue.js"></script>
+<script src="js/const.js"></script>
+<script>
+    let app = new Vue(
+        {
+            el: ".main",
+            data: {
+                showMain: true,
+                showSocial: false,
+                showAchivment: false,
+                showQuestions: false,
+                showResult: false,
+                number: 0,
+                score: {
+                    'zer': 0,
+                    'primal': 0,
+                    'terran': 0,
+                    'protoss': 0,
+                    'taldarim': 0,
+                },
+                totalGame: localStorage.getItem('sc2TotalGame') ? JSON.parse(localStorage.getItem('sc2TotalGame')) : {
+                    'zer': 0,
+                    'primal': 0,
+                    'terran': 0,
+                    'protoss': 0,
+                    'taldarim': 0,
+                    'infested': 0,
+                    'hybrid': 0,
+                },
+                totalGames: localStorage.getItem('sc2TotalGames') ? localStorage.getItem('sc2TotalGames'):0,
+                questions:questions,
+                results: results,
+                resultRace: 'infested',
+
+            }
+        }
+    )
+</script>
+</body>
+</html>
