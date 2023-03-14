@@ -195,11 +195,53 @@
                     'infested': 0,
                     'hybrid': 0,
                 },
-                totalGames: localStorage.getItem('sc2TotalGames') ? localStorage.getItem('sc2TotalGames'):0,
-                questions:questions,
+                totalGames: localStorage.getItem('sc2TotalGames') ? localStorage.getItem('sc2TotalGames') : 0,
+                questions: questions,
                 results: results,
                 resultRace: 'infested',
 
+            },
+            methods: {
+                goToMain() {
+                    this.showMain = true
+                    this.showSocial = false
+                    this.showAchivment = false
+                    this.showQuestions = false
+                    this.showResult = false
+                },
+                goToSocial() {
+                    this.showMain = false
+                    this.showSocial = true
+                    this.showAchivment = false
+                    this.showQuestions = false
+                    this.showResult = false
+                },
+                goToAchivment() {
+                    if (this.totalGames > 0) {
+                        this.showMain = false
+                        this.showSocial = false
+                        this.showAchivment = true
+                        this.showQuestions = false
+                        this.showResult = false
+                    } else {
+                        this.goToQuestions()
+                    }
+
+                },
+                goToQuestions() {
+                    this.score = {
+                        'zer': 0,
+                        'primal': 0,
+                        'terran': 0,
+                        'protoss': 0,
+                        'taldarim': 0,
+                    }
+                    this.showMain = false
+                    this.showSocial = false
+                    this.showAchivment = false
+                    this.showQuestions = true
+                    this.showResult = false
+                }
             }
         }
     )
